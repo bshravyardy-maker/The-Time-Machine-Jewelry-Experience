@@ -1,0 +1,45 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F1E9;
+    color: #4A453A;
+}
+h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', serif;
+}
+.era-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #BCAF99;
+    background-color: transparent;
+    color: #4A453A;
+    transition: all 0.2s ease-in-out;
+}
+.era-button.active {
+    background-color: #4A453A;
+    color: #F5F1E9;
+    border-color: #4A453A;
+}
+.feature-tab {
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.feature-tab.active {
+    border-bottom-color: #4A453A;
+    font-weight: 600;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 450px;
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}

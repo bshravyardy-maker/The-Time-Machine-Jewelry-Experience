@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Time Machine Jewelry Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chosen Palette: Vintage Elegance -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive, single-page narrative that transforms the static pitch deck into an engaging user journey. The structure guides the user logically from the core vision to the problem, the interactive solution, underlying technology, business impact, and future roadmap. This top-down, story-driven approach was chosen over a dashboard because the source material is a conceptual pitch, not a data set. The goal is to persuade and inform, and a narrative flow is most effective for this. Key interactions include a simulated journey for selecting an era, tabbed panels for exploring features, and an animated chart to visualize business impact, making the concept feel tangible and dynamic. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Business Outcomes (Differentiation, Engagement, Conversions). Goal: To visually compare the proposed solution's impact against traditional methods. Viz/Presentation Method: An animated vertical bar chart. Interaction: The chart animates upon scrolling into view, drawing user attention to the dramatic improvement. Justification: A bar chart provides a clear, immediate comparison of quantitative benefits, making the business case more compelling than simple text. Library/Method: Chart.js (Canvas).
+        - Report Info: The User Journey (Choose Era, Try-On, Personalize). Goal: To make the core concept interactive and understandable. Viz/Presentation Method: A multi-step interactive module using HTML/CSS/JS. Interaction: Users click buttons to switch between "eras," which dynamically updates text and imagery. Justification: This simulates the user experience, making the abstract concept of "time travel" concrete and engaging for the viewer. Library/Method: Vanilla JS DOM manipulation.
+        - Report Info: Core Features. Goal: To present detailed features without cluttering the page. Viz/Presentation Method: A tabbed content area. Interaction: Clicking on a feature name reveals its description. Justification: Tabs organize information cleanly and encourage user exploration in a compact space. Library/Method: Vanilla JS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-opacity-80 bg-[#F5F1E9] backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-2xl font-bold font-display">Time Machine Jewelry</a>
+                </div>
+                <nav class="hidden md:flex md:space-x-8">
+                    <a href="#problem" class="text-gray-700 hover:text-black transition-colors duration-300">The Problem</a>
+                    <a href="#solution" class="text-gray-700 hover:text-black transition-colors duration-300">The Experience</a>
+                    <a href="#features" class="text-gray-700 hover:text-black transition-colors duration-300">Features</a>
+                    <a href="#impact" class="text-gray-700 hover:text-black transition-colors duration-300">Impact</a>
+                    <a href="#roadmap" class="text-gray-700 hover:text-black transition-colors duration-300">Roadmap</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1611652022417-a0210e7a7447?q=80&w=2940&auto=format&fit=crop');"></div>
+            <div class="relative text-center px-4 z-10">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">The Time Machine</h1>
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-semibold mb-6">Jewelry Experience</h2>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-800">An immersive journey through the ages, blending storytelling and personalization to revolutionize how you discover and connect with fine jewelry.</p>
+            </div>
+        </section>
+
+        <section id="problem" class="py-20 md:py-32 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Addressing the Limitations of Online Shopping</h2>
+                <p class="max-w-3xl mx-auto text-lg mb-16 text-gray-600">This section outlines the core challenges in today's e-commerce landscape that our platform is designed to solve. We target the key areas where traditional online jewelry stores fall short, creating a disconnected and uninspiring experience for customers.</p>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-[#F5F1E9] p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold font-display mb-3">Lack of Engagement</h3>
+                        <p class="text-gray-700">Online shopping often feels transactional and sterile. It's difficult for customers to truly experience products, leading to passive browsing rather than active discovery and connection with a brand's story.</p>
+                    </div>
+                    <div class="bg-[#F5F1E9] p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold font-display mb-3">Limited Personalization</h3>
+                        <p class="text-gray-700">Shoppers are frequently met with generic recommendations. This creates a disconnect, as the experience isn't tailored to their unique tastes, preferences, or the story they want their jewelry to tell.</p>
+                    </div>
+                    <div class="bg-[#F5F1E9] p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold font-display mb-3">No Emotional Connection</h3>
+                        <p class="text-gray-700">Without an engaging, personalized journey, customers are less likely to form a memorable bond with the products or the brand. This directly impacts loyalty, return business, and ultimately, sales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 md:py-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">A Journey Through Time</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-16 text-gray-600">Welcome to the core of our solution: an interactive, three-step experience designed to be immersive and deeply personal. This is where users don't just shop for jewelry—they embark on an adventure. Click through the steps below to see how we transform the process.</p>
+                </div>
+                <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                        <div class="w-full md:w-1/2">
+                            <div id="era-image" class="bg-gray-200 rounded-lg w-full aspect-square bg-cover bg-center transition-all duration-500" style="background-image: url('https://images.unsplash.com/photo-1599643477877-53a81a4427a6?q=80&w=2787&auto=format&fit=crop');"></div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <div class="mb-6">
+                                <h3 class="text-3xl font-bold font-display mb-2">Step 1: Choose Your Era</h3>
+                                <p class="text-gray-600 mb-4">Begin your adventure by selecting a time period that speaks to you. Each era offers a unique aesthetic and story.</p>
+                                <div class="flex flex-wrap gap-3">
+                                    <button class="era-button active" data-era="artdeco">Art Deco</button>
+                                    <button class="era-button" data-era="victorian">Victorian</button>
+                                    <button class="era-button" data-era="futuristic">Futuristic</button>
+                                </div>
+                            </div>
+                            <div id="era-content" class="transition-opacity duration-500">
+                                <h4 class="text-xl font-bold mb-2">Art Deco Grandeur</h4>
+                                <p class="text-gray-700">Discover stunning jewelry with bold geometric patterns, lavish ornamentation, and symmetrical designs. A celebration of modernity and luxury from the roaring twenties.</p>
+                            </div>
+                            <hr class="my-6">
+                            <div>
+                                <h3 class="text-3xl font-bold font-display mb-2">Step 2: The Virtual Mirror</h3>
+                                <p class="text-gray-600">Our innovative AI-powered mirror feature allows you to upload a selfie and see how each piece looks on you, ensuring a perfect fit and style from the comfort of your home.</p>
+                            </div>
+                            <hr class="my-6">
+                            <div>
+                                <h3 class="text-3xl font-bold font-display mb-2">Step 3: Personalize & Purchase</h3>
+                                <p class="text-gray-600">Customize your selection by changing metals or gemstones. Once you've crafted your unique piece, you can save it, share it with friends, and purchase with ease.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="features" class="py-20 md:py-32 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Core Platform Features</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-12 text-gray-600">These three pillars form the foundation of the Time Machine Jewelry Experience. Each feature is crafted to enhance user immersion, confidence, and delight, transforming the platform from a simple store into a destination.</p>
+                </div>
+                <div>
+                    <div class="border-b border-gray-300 mb-8">
+                        <nav class="flex justify-center -mb-px space-x-8" aria-label="Tabs">
+                            <button class="feature-tab active" data-tab="homepage">Interactive Homepage</button>
+                            <button class="feature-tab" data-tab="timemachine">AI Time Machine</button>
+                            <button class="feature-tab" data-tab="viewer">360° Viewer</button>
+                        </nav>
+                    </div>
+                    <div id="features-content" class="max-w-3xl mx-auto text-center">
+                        <div data-tab-content="homepage" class="tab-pane active">
+                            <h3 class="text-2xl font-bold font-display mb-3">An Engaging Entry Point</h3>
+                            <p class="text-gray-700">The experience begins with a captivating homepage that showcases featured collections and intuitively guides users into their time-traveling journey. It's more than a landing page; it's a portal to discovery.</p>
+                        </div>
+                        <div data-tab-content="timemachine" class="tab-pane hidden">
+                            <h3 class="text-2xl font-bold font-display mb-3">Your Personal Jewelry Adventure</h3>
+                             <p class="text-gray-700">Powered by AI, this core feature allows users to explore distinct eras of jewelry. It delivers unique styles and personalization options, ensuring a shopping adventure that is tailored specifically to them.</p>
+                        </div>
+                         <div data-tab-content="viewer" class="tab-pane hidden">
+                            <h3 class="text-2xl font-bold font-display mb-3">See Every Detail</h3>
+                            <p class="text-gray-700">Our revolutionary 360° viewer allows customers to inspect jewelry from all angles. This tool enhances the visual experience, building confidence and clarity in every purchasing decision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20 md:py-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Projected Business Outcomes</h2>
+                <p class="max-w-3xl mx-auto text-lg mb-16 text-gray-600">By reimagining the online shopping journey, we anticipate significant improvements across key business metrics. This chart illustrates the expected uplift compared to traditional e-commerce platforms, showcasing how our unique, AI-powered experience translates into tangible results.</p>
+                <div class="chart-container">
+                    <canvas id="impactChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roadmap" class="py-20 md:py-32 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">From Prototype to Launch</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-16 text-gray-600">Our development path is clear and focused. This roadmap outlines the three key phases that will take the Time Machine Jewelry Experience from a validated concept to a fully integrated, market-ready platform.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 hidden md:block" aria-hidden="true"></div>
+                    <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8">
+                        <div class="text-center">
+                            <div class="flex items-center justify-center w-16 h-16 mx-auto bg-[#4A453A] text-white rounded-full text-2xl font-bold mb-4">1</div>
+                            <h3 class="text-2xl font-bold font-display mb-2">Prototype & Validate</h3>
+                            <p class="text-gray-600">Develop a functional prototype of the core experience to validate our concepts and gather crucial early feedback from target users.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="flex items-center justify-center w-16 h-16 mx-auto bg-[#4A453A] text-white rounded-full text-2xl font-bold mb-4">2</div>
+                            <h3 class="text-2xl font-bold font-display mb-2">Test & Enhance</h3>
+                            <p class="text-gray-600">Conduct thorough testing of the prototype with real users to ensure functionality and enhance user experience based on feedback.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="flex items-center justify-center w-16 h-16 mx-auto bg-[#4A453A] text-white rounded-full text-2xl font-bold mb-4">3</div>
+                            <h3 class="text-2xl font-bold font-display mb-2">Integrate & Launch</h3>
+                            <p class="text-gray-600">Integrate with Shopify Headless for a seamless e-commerce backend, followed by a full-scale market launch to attract and delight customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#4A453A] text-[#F5F1E9]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <h2 class="text-3xl font-bold font-display mb-2">Thank You</h2>
+            <p class="mb-4">We'd love to hear from you.</p>
+            <div class="text-lg">
+                <a href="mailto:b.shravya.rdy@gmail.com" class="hover:underline">b.shravya.rdy@gmail.com</a>
+                <span class="mx-2">|</span>
+                <span>9703848524</span>
+            </div>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
